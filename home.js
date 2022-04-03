@@ -55,14 +55,24 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
 
-const canWeDeliver = (zipCode) => {
-    const result = zipCode.map((zip) => {
-        console.log(zip)
-        return ""
-    })
-}
+// const canWeDeliver = (zipCode) => {
+//     const result = zipCode.map((zip) => {
+//         console.log(zip)
+//         return `You're in our delivery zone!`
+//     })
+// }
     
+// AFTER REVIEW
 
+const canWeDeliver = (zipcode) => {
+    if(deliveryAreaZipCodes.includes(zipcode)) {
+        return `You're in our delivery zone!`
+    } else {
+        return `Sorry, we can't deliver to that address`
+    }
+}
+
+console.log(canWeDeliver(182737))
 
 /* 
     Problem 2 Continued
@@ -83,6 +93,25 @@ const canWeDeliver = (zipCode) => {
 
 // CODE HERE
 
+const canWeDeliverTwo = (zipcode) => {
+    for (let i = 0; i < deliveryAreaZipCodes.length; i++) {
+        if (zipcode === deliveryAreaZipCodes[i]) {
+            return `You're in our delivery zone!`
+        } else {
+            return `Sorry, we can't deliver to that address`
+
+        }
+    } 
+
+    return 'Sorry, we can not find this zipcode. Please try again'
+
+}
+
+console.log(canWeDeliverTwo(85205))
+
+// use for loop
+// looking for matching zipcodes
+// console.log(canWeDeliverTwo(number zipcode))
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -119,19 +148,30 @@ const deals = [
 
 //CODE HERE
 
+deals[0].title = deals[0].title.replace('15', '10')
 
+console.log(deals)
+
+
+// deals[0] to access any object inside of an array
 
 /*
-    The restaurant is going to continue its
-    family deal for another month. 
+The restaurant is going to continue its
+family deal for another month. 
 
-    Reassign the value of the second deal's desc
-    to be itself, but use the `replace` method
-    to replace the word March with April.
+Reassign the value of the second deal's desc
+to be itself, but use the `replace` method
+to replace the word March with April.
 
-    You should also make sure that there is no
-    whitespace in this string, since it seems
-    to be displaying wrong on the live site.
+You should also make sure that there is no
+whitespace in this string, since it seems
+to be displaying wrong on the live site.
 */
 
 //CODE HERE
+
+deals[1].desc = deals[1].desc.replace('March', 'April').trim()
+
+
+console.log(deals)
+// methods need to be involked

@@ -39,6 +39,8 @@ const summedPrice = cart.reduce((price, current) => price + current.price, 0)
 
 console.log(summedPrice)
 
+// starts at 0 because its the first element of the array//
+
 //////////////////PROBLEM 2////////////////////
 /*  
     Write a function called `calcFinalPrice` that
@@ -56,16 +58,20 @@ console.log(summedPrice)
 
 //CODE HERE
 
-const cartTotal = summedPrice
+// const cartTotal = summedPrice
  
-const couponValue = (sum, discount) => {
-    sum.cartTotal = sum.cartTotal * (1 - discount)
+// const couponValue = (sum, discount) => {
+//     sum.cartTotal = sum.cartTotal * (1 - discount)
+// }
+
+// // const calcFinalPrice
+// console.log(cartTotal)
+
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+    return (cartTotal * (1 + tax)) - couponValue
 }
 
-
-
-// const calcFinalPrice
-console.log(cartTotal)
+console.log(calcFinalPrice(10, 3, .5))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -90,8 +96,12 @@ console.log(cartTotal)
 /*
     TEXT ANSWER HERE
 
-Some properties that the customer object will have are name('string'), quantity(number), popularity(number), quality('string' => 'Healthy' or 'Not healthy').
-I chose these because date types because for every item you get, it always has a name, you can always get different amounts of any items, if the item if popular or not, and the quality of the item.
+    name 'string'
+    address 'string'
+    phone number 'string'
+    weakness [array]
+    regular boolean
+    
 
 */
 
@@ -102,9 +112,17 @@ I chose these because date types because for every item you get, it always has a
 
 //CODE HERE
 
-const object = {
-    name: 'Frozen Pizza',
-    quantity: 3,
-    popularity: 8,
-    quality: 'Not healthy'
+// const object = {
+//     name: 'Frozen Pizza',
+//     quantity: 3,
+//     popularity: 8,
+//     quality: 'Not healthy'
+// }
+
+const customer = {
+    name: 'Berry Allen',
+    address: 'Central City',
+    phone: '0000000000',
+    weakness: ['MentionMother', 'ReverseFlash'],
+    regular: true
 }

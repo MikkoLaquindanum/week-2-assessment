@@ -74,10 +74,13 @@ console.log(pizza.tags[1])
 
 //CODE HERE
 
-let price = 6.99
+// let price = 6.99
+
+// console.log(price)
+
+const {price} = pizza
 
 console.log(price)
-
 /*
     Fourth, and last, destructure the category
     property.
@@ -87,7 +90,7 @@ console.log(price)
 
 //CODE HERE
 
-let category = 'appetizer'
+const {category} = pizza
 
 console.log(category)
 
@@ -106,14 +109,58 @@ console.log(category)
 //CODE HERE
 
 // const foodArr = ['Supreme', 7.99, 'entree', 9, 9.5, 'Meaty', 'Delicious']
-const foodArr = {
-    name: 'Supreme',
-    price: 7.99,
-    category: 'entree',
-    popularity: 9,
-    rating: 9.5,
-    tags: ['Meaty', 'Delicious']
-}
+// const foodArr = [
+//     name: 'Supreme',
+//     price: 7.99,
+//     category: 'entree',
+//     popularity: 9,
+//     rating: 9.5,
+//     tags: ['Meaty', 'Delicious']
+// 
+// supposed to have mulitple options
+
+const foodArr = [
+    {
+        name: 'Veggie',
+        price: 8.99,
+        category: 'entree',
+        popularity: 6,
+        rating: 8,
+        tags: ['healthy', 'vegetables', 'notforeveryone']
+    },
+    {
+        name: 'Supreme',
+        price: 9.99,
+        category: 'entree',
+        popularity: 9,
+        rating: 9.5,
+        tags: ['meaty', 'delicious', 'topnotch']
+    },
+    {
+        name: 'Pepperoni',
+        price: 7.99,
+        category: 'entree',
+        popularity: 7,
+        rating: 8,
+        tags: ['greasy', 'spicy', 'semibsic']
+    },
+    {
+        name: 'Hawian',
+        price: 7.99,
+        category: 'entree',
+        popularity: 6,
+        rating: 7,
+        tags: ['pinapples', 'fruitonpizza', 'controversal']
+    },
+    {
+        name: 'Cheese',
+        price: 6.99,
+        category: 'entree',
+        popularity: 8,
+        rating: 8,
+        tags: ['cheesy', 'noflavor', 'superbasic']
+    }
+]
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -129,11 +176,19 @@ const foodArr = {
 
 //CODE HERE
 
+const filteredFood = foodArr.filter(tag => tag.tags.includes('pinapples'))
+
+console.log(filteredFood)
+
 // const filteredFood = foodArr.filter((certain) => {
 //     return certain.startsWith('M')
 // })
 
-const filteredFood = foodArr.filter(tag => tag.startsWith('M'))
+// const filteredFood = foodArr.filter(tag => tag.startsWith('M'))
+
+// const filteredFood = foodArr.filter(pizzaTypes => {
+//     return pizzaTypes.tags.include('meaty')
+// })
 
 // console.log(filteredFood)
 
@@ -179,7 +234,14 @@ const filteredFood = foodArr.filter(tag => tag.startsWith('M'))
 //CODE HERE
 
 const filterByProperty = (property, number, type) => {
-
+    const filterArr = foodArr.filter(pizza => {
+        if(type === "above") {
+            return pizza[property] > number
+        } else if (type === 'below'){
+            return pizza[property] < number
+        } 
+    })
+    return filterArr
 }
 
 /*
@@ -190,3 +252,5 @@ const filterByProperty = (property, number, type) => {
 */
 
 //CODE HERE
+
+console.log(filterByProperty('price', 8, 'above'))
